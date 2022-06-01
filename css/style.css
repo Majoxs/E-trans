@@ -61,7 +61,7 @@ a {
 
 img, svg {
   display: block;
-  max-height: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -401,6 +401,106 @@ body {
   line-height: 1.3;
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  display: flex;
+  cursor: pointer;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal__block {
+  position: relative;
+  width: 680px;
+  padding: 40px 15px;
+  background-color: var(--color-light);
+  margin: auto;
+  cursor: default;
+  border: 1px solid #646464;
+  border-radius: 8px;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.modal__title {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.modal__text {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.modal__input {
+  border: 1px solid var(--color-grey);
+  border-radius: 6px;
+  width: 100%;
+  height: 78px;
+  padding: 15px;
+}
+
+.modal__input::placeholder {
+  color: var(--color-grey);
+}
+
+.modal__btn {
+  padding: 24px 60px;
+  min-width: 380px;
+  height: 78px;
+  border: 2px solid transparent;
+  background-color: var(--color-accent);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--color-dark);
+  outline: none;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease-in-out;
+  transition-duration: .3s, .2s, .3s;
+}
+
+.modal__btn:hover {
+  background-color: var(--color-accent-light);
+}
+
+.modal__btn:focus {
+  border-color: var(--color-dark);
+}
+
+.modal__btn:active {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+  transition-duration: .2s;
+}
+
+.modal__close {
+  position: absolute;
+  top: 15px;
+  right: 15px ;
+}
+
+
 @media (max-width: 1200px) {
   .navigation__list {
     gap: 20px;
@@ -504,6 +604,10 @@ body {
     margin-bottom: 10px;
   }
 
+  .product__description {
+    -webkit-line-clamp: 3;
+  }
+
   .product__btn {
     min-width: 260px;
     height: 50px;
@@ -604,10 +708,6 @@ body {
   .product:nth-child(odd) .product__container {
     flex-direction: column;
     align-items: center;
-  }
-
-  .product__description {
-    -webkit-line-clamp: 3;
   }
 
   .product__btn {
